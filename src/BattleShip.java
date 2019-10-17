@@ -35,14 +35,14 @@ public class BattleShip {
         // Principal message
         System.out.println("Welcome to my BATTLE SHIP !!!  ARE YOU READY FOR THE WAR ? ");
         System.out.println();
-        System.out.println("                            |`-:_\n" + 
-        					"  ,----....____            |    `+.\n" + 
-        					" (             ````----....|___   |\n" + 
-        					"  \\     _                      ````----....____\n" + 
-        					"   \\ <--_)                                     ```---.._\n" + 
-        					"    \\                                                   \\\n" + 
-        					"  )`.\\  )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.\n" + 
-        					"-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `");
+        System.out.println("                             |`-:_\n" + 
+        					"   ,----....____            |    `+.\n" + 
+        					"  (             ````----....|___   |\n" + 
+        					"   \\     _                      ````----....____\n" + 
+        					"    \\ <--_)                                     ```---.._\n" + 
+        					"     \\                                                   \\\n" + 
+        					"   )`.\\  )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.\n" + 
+        					" -'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `");
         
         System.out.println("Write a Letter from the left Side from A to H, and a number from 1 to 8.");
         System.out.println();
@@ -155,6 +155,7 @@ public class BattleShip {
 			System.out.println("");
 			System.out.println("");
 			System.out.println("You LOSEEE, YOU NOOB !!");
+			System.out.println(" σ_σ ");
 		}
 	}
 
