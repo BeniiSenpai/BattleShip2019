@@ -13,6 +13,10 @@ public class BattleShip {
 	public static final int DIMENSION = 8;	
 	static char[][] matrix = new char[DIMENSION][DIMENSION];
 	static boolean gameOver;
+    static int remainingShips;
+    static int reamiangWater;
+    static int counter;
+
 		
 	public static void main(String[] args) {
 		
@@ -23,14 +27,40 @@ public class BattleShip {
 		gameOver = false;
 	    initMatrix();
 	    addShipsToMatrix();
-	    	     
+	    
+        // Principal message
+        System.out.println("Welcom to BATTLE SHIP !!!");
+        System.out.println();
+        System.out.println("                            |`-:_\n" + 
+        					"  ,----....____            |    `+.\n" + 
+        					" (             ````----....|___   |\n" + 
+        					"  \\     _                      ````----....____\n" + 
+        					"   \\    _)                                     ```---.._\n" + 
+        					"    \\                                                   \\\n" + 
+        					"  )`.\\  )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.   )`.\n" + 
+        					"-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `-'   `");
+        
+        System.out.println("Write a Letter from the left Side from A to H, and a number from 1 to 8.");
+        System.out.println();
+        System.out.println("If you hit a ship appears a 'X' ");
+        System.out.println();
+        System.out.println("If you have 25 fails you lose the game, try to do your Best...");
+        System.out.println();
+        System.out.println();
+        
+        // Aqui me realiza las instrucciones Principales
 	    while(!gameOver) {
 	    	printMatrix(true);
 	    	System.out.println("Enter row (Letter):");
-	    	letter = input.next().charAt(0);
+            letter = input.next().toUpperCase().charAt(0);
 	    	System.out.println("Enter column (Number): ");
 	    	number = input.nextInt();
 	    	shoot(letter, number);
+            winn();
+            lose();
+            System.out.println();
+            System.out.println("The Remaining Ships are " + remainingShips + "");
+            System.out.println();
 	    }
 	     
 	}
@@ -39,10 +69,16 @@ public class BattleShip {
 		
 		int row = letter - 'A';
 		int col = number - 1;
-		
-		//if (matrix[row][col] == ...)
-		
-	}
+    	
+    	if (matrix[row][col] == SHIP_SYMBOL) {
+    		matrix[row][col] = SUNK_SHIP_SYMBOL;
+    		remainingShips--;
+    	} else {
+    		matrix[row][col] = WATER_SYMBOL;
+    		counter ++;
+    	}
+
+    }
 
 	private static void addShipsToMatrix() {
 		
@@ -59,6 +95,24 @@ public class BattleShip {
 			}
 		}
 		
+	}
+	
+    private static void winn() {
+    	
+        if (remainingShips == 0) {
+        	gameOver = true; 
+            System.out.println("You WINNNN");
+        }	
+	}
+    
+    private static void lose() {
+    	
+        if (counter == 25) {
+        	gameOver = true; 
+        	System.out.println("");
+        	System.out.println("");
+            System.out.println("You LOSEEE, YOU NOOB !!");
+        }	
 	}
 
 	public static void initMatrix() {
